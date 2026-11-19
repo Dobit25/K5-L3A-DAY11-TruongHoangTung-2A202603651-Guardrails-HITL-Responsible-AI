@@ -1,5 +1,22 @@
 # Day 11 — Controlled Agent Security (2026)
 
+## Bài nộp cá nhân
+
+- Họ tên: Trương Hoàng Tùng · MSSV: `2A202603651` · Lớp: L3A.
+- Môi trường sử dụng: conda `gen`; chạy từ thư mục gốc repo.
+- `conda activate gen`, cấu hình key local trong `.env`, đặt `RED_TEAM_PROVIDER=openai`, `OPENAI_MODEL=gpt-4o-mini`.
+- Chạy `python src/main.py --part 3`, `python src/main.py --part 4`, rồi `python scripts/grade.py --submission-dir . --out outputs/grade_report.json`.
+- Kiểm thử: `python -m pytest tests/smoke tests/public tests/test_security_regressions.py -q`.
+- Bonus lựa chọn: B1 (Red); bằng chứng leak chỉ được công nhận sau replay. B2 không cộng đồng thời.
+- Dùng Codex hỗ trợ review, sửa code và chạy kiểm chứng; artifact được sinh bởi lệnh lab, lỗi API không được thay bằng câu trả lời giả thành công.
+
+### Trạng thái kiểm chứng ngày 19/11/2026
+
+- Smoke/public và regression bảo mật: 53 test đạt trong conda `gen`.
+- CP4 đã chạy thực tế với OpenAI `gpt-4o-mini`: Red leak 4/5, Red Advance chặn 5/5; bonus B1 còn cần grader replay.
+- CP3 chưa đạt: endpoint OpenRouter trả HTTP 404 cho model Blue bắt buộc `liquid/lfm-2.5-2.6b:free`, báo không còn provider phục vụ model. `outputs/results.json` ghi lỗi `runtime_error` cho safe queries, không dùng câu trả lời dự phòng để tính thành công.
+- Cần Lab Coach duyệt model Blue thay thế hoặc khôi phục endpoint trước khi chạy lại CP3 và grade. Không tự sửa model Blue khóa cứng để lấy kết quả đạt.
+
 > 👤 **Hình thức:** bài tập **cá nhân** (1 người / 1 MSSV).  
 > 🎯 **Mục tiêu:** đóng vai **Blue Team** để học cách xây Guardrails phòng thủ, rồi đóng vai **Red Team** để tấn công agent **Red** hoặc **Red Advance**.  
 > ✅ Làm theo **Checkpoint 1 → 5** trong [`CHECKPOINTS.md`](CHECKPOINTS.md) · nộp theo [`SUBMISSION.md`](SUBMISSION.md).
