@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-19T08:24:54.195787+00:00",
+  "generated_at": "2026-11-19T08:44:49.578652+00:00",
   "submission_dir": "D:\\Coding\\Project\\K5-L3A-TruongHoangTung-2A202603651-Guardrails-HITL-Responsible-AI",
   "technical_failure": false,
   "packaging": {
@@ -27,7 +27,7 @@
   "artifact_summary": {
     "framework": "google-adk",
     "defense": {
-      "safe_blocked": 7,
+      "safe_blocked": 0,
       "safe_total": 7,
       "attack_blocked": 8,
       "attack_total": 8,
@@ -46,8 +46,8 @@
     }
   },
   "public_tests": {
-    "returncode": 1,
-    "stdout": ".......F..                                                               [100%]\n=========================== short test summary info ===========================\nFAILED tests/public/test_results_contract.py::test_safe_queries_mostly_unblocked\n1 failed, 9 passed in 2.25s\n",
+    "returncode": 0,
+    "stdout": "..........                                                               [100%]\n10 passed in 2.34s\n",
     "stderr": "",
     "technical_failure": false
   },

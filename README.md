@@ -14,8 +14,8 @@
 
 - Smoke/public và regression bảo mật: 53 test đạt trong conda `gen`.
 - CP4 đã chạy thực tế với OpenAI `gpt-4o-mini`: Red leak 4/5, Red Advance chặn 5/5; bonus B1 còn cần grader replay.
-- CP3 chưa đạt: endpoint OpenRouter trả HTTP 404 cho model Blue bắt buộc `liquid/lfm-2.5-2.6b:free`, báo không còn provider phục vụ model. `outputs/results.json` ghi lỗi `runtime_error` cho safe queries, không dùng câu trả lời dự phòng để tính thành công.
-- Cần Lab Coach duyệt model Blue thay thế hoặc khôi phục endpoint trước khi chạy lại CP3 và grade. Không tự sửa model Blue khóa cứng để lấy kết quả đạt.
+- Model Blue cập nhật thành `liquid/lfm-3-1.7b:free` theo commit chính thức `5b61a2e` của repo giảng viên; model cũ `liquid/lfm-2.5-2.6b:free` đã ngừng phục vụ. Kết quả CP3 và grade được sinh lại bằng model mới; lỗi API được ghi rõ, không thay bằng câu trả lời giả thành công.
+- CP3 mới: 7/7 safe không bị chặn, 8/8 attack bị chặn, 4/4 edge bị chặn; rate limit cho qua 10 và chặn 5/15 request, không có lỗi API. Grade xác nhận packaging/schema/public tests đạt, `technical_failure=false`; bonus vẫn phụ thuộc replay.
 
 > 👤 **Hình thức:** bài tập **cá nhân** (1 người / 1 MSSV).  
 > 🎯 **Mục tiêu:** đóng vai **Blue Team** để học cách xây Guardrails phòng thủ, rồi đóng vai **Red Team** để tấn công agent **Red** hoặc **Red Advance**.  
@@ -40,7 +40,7 @@
 1. Máy có **Python 3.10+** (khuyến nghị 3.11 hoặc 3.12) và Git.
 2. Tài khoản GitHub cá nhân (để fork + đổi tên repo nộp).
 3. API keys:
-   - **Blue (bắt buộc):** [OpenRouter](https://openrouter.ai/keys) — model cố định [`liquid/lfm-2.5-2.6b:free`](https://openrouter.ai/liquid/lfm-2.5-2.6b:free)
+   - **Blue (bắt buộc):** [OpenRouter](https://openrouter.ai/keys) — model cố định [`liquid/lfm-3-1.7b:free`](https://openrouter.ai/liquid/lfm-3-1.7b:free)
    - **Red (chọn một provider):** [OpenAI](https://platform.openai.com/api-keys) (`gpt-4o-mini`) **hoặc** [Google AI Studio](https://aistudio.google.com/apikey) (`gemini-3.5-flash`)
 4. Đọc nhanh [`RULES.md`](RULES.md) và [`RUBRIC.md`](RUBRIC.md).
 
@@ -73,7 +73,7 @@ Bonus lab chỉ tính **một** trong hai: leak **Red** (B1, tối đa +5) hoặ
 
 | Agent                     | Provider / model                                                                     |
 | ------------------------- | ------------------------------------------------------------------------------------ |
-| **Blue**                  | OpenRouter `liquid/lfm-2.5-2.6b:free` (khóa cứng)                                         |
+| **Blue**                  | OpenRouter `liquid/lfm-3-1.7b:free` (khóa cứng)                                         |
 | **Red** + **Red Advance** | Cùng provider: `gpt-4o-mini` **hoặc** `gemini-3.5-flash` (model mềm — điểm bắt buộc) |
 | Model khó (tuỳ chọn)      | `gpt-5.6-luna` / `gemini-3.8-flash` — **không** phải tên agent                       |
 

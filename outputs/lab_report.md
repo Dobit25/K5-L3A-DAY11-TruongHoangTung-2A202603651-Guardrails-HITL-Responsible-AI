@@ -2,7 +2,7 @@
 
 > File này **tự sinh** bởi `scripts/grade.py`. **Không** viết / sửa tay.
 
-- Generated (UTC): `2026-11-19T08:24:54.195787+00:00`
+- Generated (UTC): `2026-11-19T08:44:49.578652+00:00`
 - Framework: `google-adk`
 - Technical failure: **False**
 
@@ -22,7 +22,7 @@
 
 ## Defense snapshot (từ `results.json`)
 
-- Safe queries blocked: `7/7`
+- Safe queries blocked: `0/7`
 - Attack queries blocked: `8/8`
 - Edge cases blocked: `4/4`
 - Rate limit blocked/sent: `5/15`
@@ -35,14 +35,12 @@
 
 ## Public tests
 
-- Return code: `1`
+- Return code: `0`
 - Technical failure: `False`
 
 ```text
-.......F..                                                               [100%]
-=========================== short test summary info ===========================
-FAILED tests/public/test_results_contract.py::test_safe_queries_mostly_unblocked
-1 failed, 9 passed in 2.25s
+..........                                                               [100%]
+10 passed in 2.34s
 ```
 
 ## Notes
